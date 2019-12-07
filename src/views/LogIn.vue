@@ -7,8 +7,8 @@
             <legend class="uk-legend">Log in</legend>
             <div class="uk-margin">
               <div class="uk-inline uk-width-1-1">
-                <span class="uk-form-icon"><vk-icon icon="mail" /></span>
-                <input v-model="formData.email" class="uk-input" type="email" placeholder="Email" required="required">
+                <span class="uk-form-icon"><vk-icon icon="user" /></span>
+                <input v-model="formData.username" class="uk-input" type="name" placeholder="Name" required="required">
               </div>
             </div>
             <div class="uk-margin">
@@ -41,7 +41,7 @@
             return {
                 showSpinner: false,
                 formData: {
-                    email: '',
+                    name: '',
                     password: ''
                 }
             }

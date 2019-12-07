@@ -8,7 +8,7 @@
             <div class="uk-margin">
               <div class="uk-inline uk-width-1-1">
                 <span class="uk-form-icon"><vk-icon icon="user" /></span>
-                <input v-model="formData.username" class="uk-input" type="text" placeholder="First name" required="required">
+                <input v-model="formData.username" class="uk-input" type="text" placeholder="Name" required="required">
               </div>
             </div>
             <div class="uk-margin">

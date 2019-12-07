@@ -1,6 +1,8 @@
 <template>
   <div class="uk-position-relative">
-    <vk-navbar class="nav" :class="{ 'uk-position-top': $router.currentRoute.name === 'home' }" transparent>
+    <vk-navbar class="nav" :class="{ 'uk-position-top': $router.currentRoute.name === 'home' }"
+               :transparent="$router.currentRoute.name === 'home'"
+                style="background-color: #CFA58D">
       <vk-navbar-nav>
         <vk-navbar-logo><img src="./assets/logo.png" class="logo" style="max-height: 50%"></vk-navbar-logo>
         <vk-navbar-nav-item title="Home" :active="$router.currentRoute.name === 'home'" @click="$router.push({ name: 'home' })" />
