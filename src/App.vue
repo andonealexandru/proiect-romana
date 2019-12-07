@@ -1,32 +1,61 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="uk-position-relative">
+    <vk-navbar class="nav" :class="{ 'uk-position-top': $router.currentRoute.name === 'home' }" transparent>
+      <vk-navbar-nav>
+        <vk-navbar-logo><img src="./assets/logo.png" class="logo" style="max-height: 50%"></vk-navbar-logo>
+        <vk-navbar-nav-item title="Home" :active="$router.currentRoute.name === 'home'" @click="$router.push({ name: 'home' })" />
+      </vk-navbar-nav>
+
+      <vk-navbar-nav slot="right">
+        <vk-navbar-nav-item
+          v-if="!getLogged"
+          title="Register"
+          :active="$router.currentRoute.name === 'signin'"
+          @click="$router.push({ name: 'signin' })" />
+        <vk-navbar-nav-item
+          v-if="!getLogged"
+          title="Log In"
+          :active="$router.currentRoute.name === 'login'"
+          @click="$router.push({ name: 'login' })" />
+        <vk-navbar-nav-item
+          v-if="getLogged"
+          title="My profile"
+          :active="$router.currentRoute.name === 'profile'"
+          @click="$router.push({ name: 'profile' })" />
+        <vk-navbar-nav-item
+          v-if="getLogged"
+          title="Sign out"
+          @click="logOut" />
+      </vk-navbar-nav>
+    </vk-navbar>
+    <router-view />
+
+
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style lang="scss" scoped>
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
+
+<script>
+import store from './store'
+
+export default {
+    name: 'app',
+    computed: {
+        getLogged() {
+            return this.$store.state.logged;
+        }
+    },
+    methods: {
+        logOut () {
+            store.commit('changeLogged');
+            this.$router.push({name: 'home'});
+        },
+        getClass () {
+            return this.$router.currentRoute.name === 'home';
+        }
+    }
+}
+</script>

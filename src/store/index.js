@@ -5,11 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    logged: false
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    changeLogged(state) {
+      state.logged = !state.logged
+    }
   }
 })
