@@ -22,6 +22,7 @@
         created() {
             this.getNameImage();
             this.getDescription();
+            this.scrollUp();
         },
         methods: {
             getNameImage () {
@@ -37,6 +38,9 @@
                     'Suspendisse ullamcorper bibendum rutrum. In nisl tellus, fermentum eu cursus vel, aliquam suscipit tellus. Suspendisse scelerisque efficitur purus. Etiam at purus vitae turpis suscipit imperdiet non eget risus. Aenean euismod nec odio nec aliquet. Praesent in lorem eu sem posuere blandit. Etiam molestie, sem quis iaculis fermentum, risus lectus gravida libero, vitae aliquam metus est vel dui. Nam mattis dignissim rutrum. Sed sit amet dignissim orci, vel consectetur quam. Fusce et faucibus leo, sit amet iaculis mi. Nullam pellentesque aliquam est nec dapibus. Phasellus nec libero lacus. Nullam sodales, ipsum ullamcorper tincidunt vestibulum, lorem eros pellentesque tortor, vestibulum feugiat urna nunc id odio. Nulla ultrices finibus nibh volutpat pellentesque. Vivamus non molestie justo, sit amet pellentesque tellus.\n' +
                     '\n' +
                     'Aenean eleifend varius dolor, sed molestie arcu tincidunt id. Sed urna velit, dapibus sit amet porttitor id, porta non justo. Aliquam eleifend congue enim, ut varius lorem vehicula et. Ut ut felis placerat, auctor quam quis, lacinia turpis. Morbi tincidunt velit ac lacus tempus ornare. Vivamus ullamcorper, dui eget convallis ultrices, justo sapien rhoncus risus, eget aliquet turpis est non leo. Pellentesque ac lorem gravida, rhoncus purus eu, interdum risus. Sed faucibus consequat metus, eu pharetra quam egestas id. Vivamus posuere sit amet tortor pharetra viverra. Aenean ornare, velit vitae tristique volutpat, odio mi laoreet lectus, id mattis dui sem quis sapien.'
+            },
+            scrollUp () {
+                window.scrollTo(0, 0);
             }
         }
     }
