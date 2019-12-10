@@ -27,7 +27,7 @@
         </div>
         <div>
           <Card
-            name="Ion Creanga"
+            name="Ion Creangă"
             image="creanga.jpg"
           />
         </div>

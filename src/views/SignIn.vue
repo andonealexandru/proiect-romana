@@ -30,14 +30,15 @@
       </vk-card>
 
       <vk-card class="uk-text-center" type="blank" v-if="!showForm">
-        <vk-card-title>Account created</vk-card-title>
-        <p>Your account has been successfully created!</p>
+        <vk-card-title>Status</vk-card-title>
+        <p>{{ status }}</p>
       </vk-card>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
     export default {
         name: 'signin',
         data () {
@@ -47,16 +48,34 @@
                 formData: {
                     username: '',
                     password: ''
-                }
+                },
+                status: ''
             }
         },
         methods: {
             handleSubmit () {
                 this.showSpinner = true;
-                setTimeout(this.afterResponse, 3000);
+                let vm = this;
+
+                let axiosConfig = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                };
+
+                axios.post('https://itec2019rockthecode.herokuapp.com/users', this.formData, axiosConfig)
+                    .then(function (response) {
+                        vm.responseData = response.data
+                        this.afterResponse();
+                    })
+                    .catch(function (error) {
+                        vm.status = error
+                    })
             },
             afterResponse() {
                 this.showForm = false;
+                this.status = "Contul a fost creat cu succes!"
             }
         }
     }
