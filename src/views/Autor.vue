@@ -27,6 +27,7 @@
 
 <script>
   import store from '../store'
+  import axios from 'axios'
     export default {
         name: "autor",
         data () {
@@ -35,7 +36,12 @@
                 descriere: '',
                 questions: [],
                 corect: false,
-                raspunsulCorect: 0
+                raspunsulCorect: 0,
+                formData: {
+                    username: '',
+                    autor: '',
+                    raspCorect: false
+                }
             }
         },
         created() {
@@ -106,11 +112,11 @@
 
                 if (x === this.raspunsulCorect) {
                     this.corect = true;
-                    /// trimite ca a raspuns corect
+                    handleSubmit()
                 }
                 else {
                     this.corect = false;
-                    /// trimite ca a raspuns gresit
+                    handleSubmit()
                 }
 
                 if (this.name === "Ion Luca Caragiale") {
@@ -131,6 +137,36 @@
                 else if (this.name === "Junimea") {
                     store.commit("raspunsJunimea")
                 }
+            },
+            handleSubmit () {
+                this.showSpinner = true;
+                let vm = this;
+
+                this.formData.username; //da get la username si pune-l aici, dar cu litere mici si doar numele, fara prenume(ex: eminescu, slavici)
+                this.formData.raspCorect = this.corect;
+                this.formData.autor = this.name;
+
+                let axiosConfig = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                };
+
+                axios.post('https://romanaapp.herokuapp.com/rasp', this.formData, axiosConfig)
+                    .then(function (response) {
+                        vm.responseData = response.data
+                        if(vm.responseData == "updated")
+                          this.afterResponse();
+                        else 
+                          this.status = "Ceva nu a mers cum ar fi trebuit! Ne pare rau!"
+                    })
+                    .catch(function (error) {
+                        vm.status = error
+                    })
+            },
+            afterResponse () {
+                //zi sa arate multultumesc pt raspuns!
             }
         }
     }

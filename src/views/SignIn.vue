@@ -64,10 +64,13 @@
                     }
                 };
 
-                axios.post('https://itec2019rockthecode.herokuapp.com/users', this.formData, axiosConfig)
+                axios.post('https://romanaapp.herokuapp.com/createUser', this.formData, axiosConfig)
                     .then(function (response) {
                         vm.responseData = response.data
-                        this.afterResponse();
+                        if(vm.responseData != "already registered")
+                          this.afterResponse();
+                        else 
+                          this.status = "Username-ul este deja folosit de un alt utilizator!"
                     })
                     .catch(function (error) {
                         vm.status = error

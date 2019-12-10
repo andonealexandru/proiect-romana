@@ -94,8 +94,9 @@ export default new Vuex.Store({
     raspunsJunimea: false
   },
   mutations: {
-    changeLogged(state) {
+    changeLogged(state, name) {
       state.logged = !state.logged
+      state.name = name
     },
     raspunsCaragiale(state) {
       state.raspunsCaragiale = true;

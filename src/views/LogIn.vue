@@ -34,6 +34,7 @@
 
 <script>
     import store from '../store'
+    import axios from 'axios'
 
     export default {
         name: 'login',
@@ -41,7 +42,7 @@
             return {
                 showSpinner: false,
                 formData: {
-                    name: '',
+                    username: '',
                     password: ''
                 }
             }
@@ -49,10 +50,29 @@
         methods: {
             handleSubmit () {
                 this.showSpinner = true;
-                setTimeout(this.afterResponse, 3000);
+                let vm = this;
+
+                let axiosConfig = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                };
+
+                axios.post('https://romanaapp.herokuapp.com/login', this.formData, axiosConfig)
+                    .then(function (response) {
+                        vm.responseData = response.data
+                        if(vm.responseData != "something went wrong")
+                          this.afterResponse(vm.responseData);
+                        else 
+                          this.status = "Nume de utilizator sau parola gresita!"
+                    })
+                    .catch(function (error) {
+                        vm.status = error
+                    })
             },
-            afterResponse () {
-                store.commit('changeLogged');
+            afterResponse (name) {
+                store.commit('changeLogged', name);
                 this.$router.push({name: 'home'});
             }
         }
