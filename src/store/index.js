@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     logged: false,
-    nume: '',
+    nume: undefined,
     descriereCaragiale: "\tCel mai mare dramaturg și scriitor satiric al literaturii noastre, Ion Luca Caragiale, s-a născut la 30 ianuarie 1852 în satul Haimanale din fostul județ Prahova, ca fiu al lui Luca și al Ecaterinei Caragiale. Primele clase le urmeaza la Ploiești, la Școala Domnească, păstrând o pioasă amintire învățătorului Basil Drăgoșescu, de la care a învățat întâia dată tainele gramaticii și respectul pentru limba românească.\n" +
         "\tDupă 1870, timp de câțiva ani, preocupările lui Caragiale se aseamnană cu ale marelui său contemporan și prieten de mai tarziu, M. Eminescu: în 1870 Caragiale este copist la Tribunalul Prahova, iar în 1871 este sufleur si copist al Teatrului National din București.\n" +
         "\tAnul 1873 este important în evoluția lui Caragiale, întrucât acum de prima probă a înclinațiilor sale satirice, debutând la revista umoristică Ghimpele, cu articole si note polemice ascuțite, în care atacă cu frondă juvenilă pe Maiorescu, Macedonski s.a.\n" +
@@ -96,7 +96,10 @@ export default new Vuex.Store({
   mutations: {
     changeLogged(state, name) {
       state.logged = !state.logged
-      state.name = name
+      if(name != 'undefined')
+        state.nume = name
+      else 
+        stet.nume = ''
     },
     raspunsCaragiale(state) {
       state.raspunsCaragiale = true;

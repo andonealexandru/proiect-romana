@@ -68,9 +68,9 @@
                     .then(function (response) {
                         vm.responseData = response.data
                         if(vm.responseData != "already registered")
-                          this.afterResponse();
+                          vm.afterResponse();
                         else 
-                          this.status = "Username-ul este deja folosit de un alt utilizator!"
+                          vm.status = "Username-ul este deja folosit de un alt utilizator!"
                     })
                     .catch(function (error) {
                         vm.status = error
@@ -78,7 +78,9 @@
             },
             afterResponse() {
                 this.showForm = false;
+                this.showSpinner = false;
                 this.status = "Contul a fost creat cu succes!"
+                this.$router.push({name: 'login'});
             }
         }
     }

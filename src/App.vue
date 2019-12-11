@@ -21,11 +21,6 @@
           @click="$router.push({ name: 'login' })" />
         <vk-navbar-nav-item
           v-if="getLogged"
-          title="My profile"
-          :active="$router.currentRoute.name === 'profile'"
-          @click="$router.push({ name: 'profile' })" />
-        <vk-navbar-nav-item
-          v-if="getLogged"
           title="Sign out"
           @click="logOut" />
       </vk-navbar-nav>
@@ -53,7 +48,8 @@ export default {
     methods: {
         logOut () {
             store.commit('changeLogged');
-            this.$router.push({name: 'home'});
+            if(this.$route.path != '/')
+              this.$router.push({name: 'home'});
         },
         getClass () {
             return this.$router.currentRoute.name === 'home';

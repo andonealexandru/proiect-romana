@@ -29,6 +29,10 @@
         </form>
       </vk-card>
     </div>
+    <vk-card class="uk-text-center" type="blank" v-if="status == 'Nume de utilizator sau parola gresita!'">
+      <vk-card-title>Status</vk-card-title>
+      <p>{{ status }}</p>
+    </vk-card>
   </div>
 </template>
 
@@ -44,7 +48,9 @@
                 formData: {
                     username: '',
                     password: ''
-                }
+                },
+                responseData: '',
+                status: ''
             }
         },
         methods: {
@@ -62,17 +68,24 @@
                 axios.post('https://romanaapp.herokuapp.com/login', this.formData, axiosConfig)
                     .then(function (response) {
                         vm.responseData = response.data
+                        
                         if(vm.responseData != "something went wrong")
-                          this.afterResponse(vm.responseData);
+                           vm.afterResponse();
                         else 
-                          this.status = "Nume de utilizator sau parola gresita!"
+                        {
+                          vm.status = "Nume de utilizator sau parola gresita!"
+                          vm.showSpinner = false;
+                        }
                     })
                     .catch(function (error) {
                         vm.status = error
                     })
             },
-            afterResponse (name) {
-                store.commit('changeLogged', name);
+            afterResponse () {
+                console.log("Am ajuns in raspunsul de log in")
+                store.commit('changeLogged', this.responseData);
+                this.status = "Bine ai venit!"
+                this.showSpinner = false;
                 this.$router.push({name: 'home'});
             }
         }
