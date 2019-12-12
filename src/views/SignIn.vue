@@ -66,8 +66,8 @@
 
                 axios.post('https://romanaapp.herokuapp.com/createUser', this.formData, axiosConfig)
                     .then(function (response) {
-                        vm.responseData = response.data
-                        if(vm.responseData != "already registered")
+                        vm.responseData = response.data;
+                        if(vm.responseData !== "already registered")
                           vm.afterResponse();
                         else 
                           vm.status = "Username-ul este deja folosit de un alt utilizator!"
@@ -79,7 +79,7 @@
             afterResponse() {
                 this.showForm = false;
                 this.showSpinner = false;
-                this.status = "Contul a fost creat cu succes!"
+                this.status = "Contul a fost creat cu succes!";
                 this.$router.push({name: 'login'});
             }
         }

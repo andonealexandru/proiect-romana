@@ -9,15 +9,15 @@
       <hr class="uk-divider-icon">
       <vk-card-title>Ai găsit greșeala?</vk-card-title>
       <vk-grid v-if="!getRaspuns" class="uk-child-width-1-3@m uk-text-center uk-flex-center">
-          <div class="unu" @click="selectUnu()">{{ questions[0] }}</div>
-          <div class="doi" @click="selectDoi()">{{ questions[1] }}</div>
-          <div class="trei" @click="selectTrei()">{{ questions[2] }}</div>
+          <div class="unu" @click="chose(1)">{{ questions[0] }}</div>
+          <div class="doi" @click="chose(2)">{{ questions[1] }}</div>
+          <div class="trei" @click="chose(3)">{{ questions[2] }}</div>
       </vk-grid>
       <div v-if="getRaspuns">
-        <div v-if="corect && getLogged" class="uk-alert-success" uk-alert>
+        <div v-if="getCorect && getLogged" class="uk-alert-success" uk-alert>
           <p class="uk-text-center">Ai raspuns corect! Felicitari!</p>
         </div>
-        <div v-if="!corect && getLogged" class="uk-alert-danger" uk-alert>
+        <div v-if="!getCorect && getLogged" class="uk-alert-danger" uk-alert>
           <p class="uk-text-center">Ai raspuns gresit!</p>
         </div>
         <div v-if="!getLogged" class="uk-alert-danger" uk-alert>
@@ -39,17 +39,13 @@
                 name: '',
                 descriere: '',
                 questions: [],
-                corect: false, // ocupa-te sa ramana raspunsul..pt ca acum daca rasp corect si reintru imi apare ca am rasp gresit, si nu pot sa mai raspund la niciun autor
+                corect: null,
                 raspunsulCorect: 0,
                 formData: {
                     username: '',
                     autor: '',
                     raspCorect: false
-                },
-                targetId: '',
-                unu: HTMLDivElement,
-                doi: HTMLDivElement,
-                trei: HTMLDivElement,
+                }
             }
         },
         created() {
@@ -79,6 +75,26 @@
             },
             getLogged() {
                 return this.$store.state.logged;
+            },
+            getCorect() {
+                if (this.name === "Ion Luca Caragiale") {
+                    return this.$store.state.raspunsCorectCaragiale;
+                }
+                else if (this.name === "Mihai Eminescu") {
+                    return this.$store.state.raspunsCorectEminescu;
+                }
+                else if (this.name === "Ion Creangă") {
+                    return this.$store.state.raspunsCorectCreanga;
+                }
+                else if (this.name === "Ioan Slavici") {
+                    return this.$store.state.raspunsCorectSlavici;
+                }
+                else if (this.name === "Titu Maiorescu") {
+                    return this.$store.state.raspunsCorectMaiorescu;
+                }
+                else if (this.name === "Junimea") {
+                    return this.$store.state.raspunsCorectJunimea;
+                }
             }
         },
         methods: {
@@ -119,47 +135,53 @@
                 window.scrollTo(0, 0);
             },
             chose (x) {
-                if(this.$store.state.logged == true) {
+                if(this.$store.state.logged === true) {
                     /// user-ul a ales raspunsul
-                    console.log("e logat")
+                    console.log("e logat");
                     if (x === this.raspunsulCorect) {
-                        this.corect = true;
+                        this.trimitereRaspuns(true);
                         this.handleSubmit()
                     }
                     else {
-                        this.corect = false;
+                        this.trimitereRaspuns(false);
                         this.handleSubmit()
-                    }
-
-                    if (this.name === "Ion Luca Caragiale") {
-                        store.commit("raspunsCaragiale")
-                    }
-                    else if (this.name === "Mihai Eminescu") {
-                        store.commit("raspunsEminescu")
-                    }
-                    else if (this.name === "Ion Creangă") {
-                        store.commit("raspunsCreanga")
-                    }
-                    else if (this.name === "Ioan Slavici") {
-                        store.commit("raspunsSlavici")
-                    }
-                    else if (this.name === "Titu Maiorescu") {
-                        store.commit("raspunsMaiorescu")
-                    }
-                    else if (this.name === "Junimea") {
-                        store.commit("raspunsJunimea")
                     }
                 } else {
                     this.corect = false;
                     console.log("nu e logat")
                 }
             },
+            trimitereRaspuns (booleana) {
+                if (this.name === "Ion Luca Caragiale") {
+                    store.commit("raspunsCorectCaragiale", booleana);
+                    store.commit("raspunsCaragiale")
+                }
+                else if (this.name === "Mihai Eminescu") {
+                    store.commit("raspunsCorectEminescu", booleana);
+                    store.commit("raspunsEminescu")
+                }
+                else if (this.name === "Ion Creangă") {
+                    store.commit("raspunsCorectCreanga", booleana);
+                    store.commit("raspunsCreanga")
+                }
+                else if (this.name === "Ioan Slavici") {
+                    store.commit("raspunsCorectSlavici", booleana);
+                    store.commit("raspunsSlavici")
+                }
+                else if (this.name === "Titu Maiorescu") {
+                    store.commit("raspunsCorectMaiorescu", booleana);
+                    store.commit("raspunsMaiorescu")
+                }
+                else if (this.name === "Junimea") {
+                    store.commit("raspunsCorectJunimea", booleana);
+                    store.commit("raspunsJunimea")
+                }
+            },
             handleSubmit () {
-                this.showSpinner = true;
                 let vm = this;
 
                 this.formData.username = this.$store.state.nume; 
-                this.formData.raspCorect = this.corect;
+                this.formData.raspCorect = this.getCorect;
 
                 if (this.name === "Ion Luca Caragiale") {
                     this.formData.autor = "caragiale";
@@ -189,49 +211,18 @@
 
                 axios.post('https://romanaapp.herokuapp.com/rasp', this.formData, axiosConfig)
                     .then(function (response) {
-                        vm.responseData = response.data
-                        if(vm.responseData == "updated")
+                        vm.responseData = response.data;
+                        if(vm.responseData === "updated")
                           vm.afterResponse();
                         else 
                           vm.status = "Ceva nu a mers cum ar fi trebuit! Ne pare rau!"
                     })
                     .catch(function (error) {
-                        vm.status = error
+                        vm.status = error;
                     })
             },
             afterResponse () {
                 console.log(this.responseData);
-                this.showSpinner = false;
-            },
-            selectUnu () {
-                this.unu = document.querySelector("body > div > div > div > div > div.uk-child-width-1-3\\@m.uk-text-center.uk-flex-center.uk-grid.uk-grid-stack > div.unu.uk-first-column");
-                let vm = this;
-                this.unu.addEventListener( 'click', function( e ){
-                    console.log( e.target, e.currentTarget ); 
-                    vm.targetId = e.currentTarget;
-                    vm.chose(1);
-                    e.preventDefault();
-                });
-            },
-            selectDoi () {
-                this.doi = document.querySelector("body > div > div > div > div > div.uk-child-width-1-3\\@m.uk-text-center.uk-flex-center.uk-grid.uk-grid-stack > div.doi.uk-grid-margin.uk-first-column")
-                let vm = this;
-                this.doi.addEventListener( 'click', function( e ){
-                    console.log( e.target, e.currentTarget ); 
-                    vm.targetId = e.currentTarget;
-                    vm.chose(2);
-                    e.preventDefault();
-                });
-            },
-            selectTrei () {
-                this.trei = document.querySelector("body > div > div > div > div > div.uk-child-width-1-3\\@m.uk-text-center.uk-flex-center.uk-grid.uk-grid-stack > div.trei.uk-grid-margin.uk-first-column")
-                let vm = this
-                this.trei.addEventListener( 'click', function( e ){
-                    console.log( e.target, e.currentTarget ); 
-                    vm.targetId = e.currentTarget;
-                    vm.chose(3);
-                    e.preventDefault();
-                });
             }
         }
     }

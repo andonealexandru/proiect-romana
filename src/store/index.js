@@ -27,6 +27,7 @@ export default new Vuex.Store({
     ],
     corectCaragiale: 3,
     raspunsCaragiale: false,
+    raspunsCorectCaragiale: false,
     descriereEminescu: "\tDeşi poetul, la modul declarativ, se consideră ca apartinând romantismului, el admiră şi valorile clasice, în creaţia sa tinzând spre frumos şi adevăr, militând pentru perfecţiunea artistică, trăsături specifice clasicismului. \n" +
         "\tÎn concepţia lui Eminescu, adevărata poezie este cea izvorâtă din propria experienţă umană, existenţială, pe care creatorul o transfigurează artistic. Tot în concepţia lui, poezia veritabilă se naşte din adevăr transfigurat artistic, iar poezia autentică este aceea care asigură creatorului nemurirea.\n" +
         "\t,,Epigonii” poate fi considerată o poezie programatică, un prim manifest estetic eminescian, în care poetul realizează o antiteză în stil romantic între creatorii de dinainte şi contemporanii săi. Dacă în prima parte îşi elogiază înaintaşii în accente de odă, în a doua parte Eminescu adoptă o atitudine intransigentă faţă de poeţii generaţiei sale.\n" +
@@ -42,12 +43,13 @@ export default new Vuex.Store({
         "\tLa Eminescu există patru ipostaze ale iubirii. Există mai întai o iubire paradisiacă ( ,,Dorinţa” , ,, Lacul ”, „ Floare albastră ”, „Sara pe deal ) ” , natura apare ca un paradis terestru în care cuplul alunecă în somn , în vis, reprezentând cuplul adamic. În a doua ipostază , cea a iubirii demonice , cuplul erotic este alcătuit antonimic , ea- înger şi el –demon ( ,,Înger şi demon”   , ,‚Luceafărul ”  , ,‚Scrisoarea V ’’. Natura este şi ea dominată de dezordine , fiind în consonanţă cu revolta demonului care nu-şi poate împlini aspiraţia spre iubire. În cadrul eroticii funerare  sau funebre, cuplul este alcătuit dintr-o fiinşă vie şi una moartă, apărând motivul  strigoiului sau al dublului ( ,, Strigoii ” , „Gemenii”, „Luceafărul ”) unde domină o natură halucinantă fără urmă de naturaleţe şi căldură. În cea de-a patra ipostază, preferinţa poetului se îndreaptă  spre elegii, opuse ideilor din prima perioadă, natura paradisiacă este înlocuită cu una pustie, stingheră, în mijlocul căruia eul liric trăieşte sentimentul trecerii în nefiintă („De câte ori, iubit-o , „Departe sunt de tine”, „Pe lângă plopii fără soţ”).\n" +
         "Pornind de la ideile filozofilor, poetul mai vorbeşte despre timp şi spaţiu ca forme ale cunoaşterii, viaţa ca vis, dominaţia răului în lume, voinţa de a trăi, nefericirea geniului, prezentul etern. Aşadar mitul genezei, cel al morţii cosmice sunt prezente în poezia filozofică eminesciană. Multe din aceste teme se întrepătrund şi le găsim îngemănate în aceeaşi creaţie, aşa cum se întamplă în „Glossă” şi „Luceafărul”.",
     intrebariEminescu: [
-      'Caragiale a fost om',
-      'Caragiale nu a fost om',
+      'Eminescu a fost om',
+      'Eminescu nu a fost om',
       'Sa ai o zi'
     ],
     corectEminescu: 3,
     raspunsEminescu: false,
+    raspunsCorectEminescu: false,
     descriereCreanga: "\tLipsit de apreciere pentru mult timp, Ion Creangă devine autor clasic, inclus de Nicolae Manolescu în lista autorilor canonici, după ce numeroși critici interbelici observă complexitatea scrierilor sale. Începând cu cea de-a doua parte a secolului al XIX-lea, Ion Creangă frecventează constant cenaclul „Junimea”  înființat la Iași de către Titu Maiorescu, Petre P. Carp, Theodor Rosseti, Iacob Negruzzi și Vasile Pogor. Creangă își citește operele în cadrul societății fiind apreciat pentru spiritul său oratoric, ironie, autoironie și umor. Autorul debutează în revista „Convorbiri literare”cu basmul nuvelistic „Soacra cu trei nurori”  în anul 1875. De-a lungul vieții își face simțită prezența în principal în domeniul școlar fiind învățător și publicând manuale școlare. Timp de 10 ani publică povești printre acestea numărându-se: „Povestea Porcului”, „Punguța cu doi bani”, „Capra cu trei iezi”, „Moș Ion Roată și Unirea”, „Inul și cânepa”. Titu Maiorescu este alături de Eminescu și Caragiale un susținător al talentului lui Creangă, dar deși îl prezintă în cadrul cenaclului la superlativ nu îi dedică totuși un studiu individual precum o făcuse cu Mihai Eminescu („Eminescu și poeziile lui” ) sau lui Ion Luca Caragiale („Comediile d-lui Caragiale”), afirmând despre Creangă că este totuși un autor „poporal”.\n" +
         "\tOpera „Povestea lui Harap-Alb”  a fost publicată în „Convorbiri literare” în 1877, an în care apare și basmul „Fata babei și fata moșneagului”. \n" +
         "\nTeme și motive\n" +
@@ -62,44 +64,48 @@ export default new Vuex.Store({
         "\tÎn opera „Prostia Omenească”, Creangă subliniază faptul că oricât de departe se merge și oricât se încearcă ferirea, de prostie tot nu se scapă. Un bărbat trăia cu soția și cu soacra. Cele două erau cam proaste așa că el se hotărăște să plece de acasă și să vadă dacă există oamenii mai proști ca ele pe lume. Pe drum vede tot felul de întâmplări cum ar fi: căratul soarelui cu oborul, urcatul nucilor în pod cu țăpoiul și trasul vacii pe șură la fân. Când se întoarce acasa constată că există oameni mult mai proști decât în familia lui.\n" +
         "\tÎn concluzie, Ion Creangă se înscrie în rândul scriitorilor populari, dar care are o viziune realistă asupra existenței umane, poveștile lui fiind bucăți rupte din viața neamului moldovenesc.",
     intrebariCreanga: [
-      'Caragiale a fost om',
-      'Caragiale nu a fost om',
+      'Creanga a fost om',
+      'Creanga nu a fost om',
       'Sa ai o zi'
     ],
     corectCreanga: 3,
     raspunsCreanga: false,
+    raspunsCorectCreanga: false,
     descriereSlavici: "",
     intrebariSlavici: [
-      '',
-      '',
-      ''
+      'gresit',
+      'gresit',
+      'corect'
     ],
     corectSlavici: 3,
     raspunsSlavici: false,
+    raspunsCorectSlavici: false,
     descriereMaiorescu: "",
     intrebariMaiorescu: [
-      '',
-      '',
-      ''
+      'gresit',
+      'gresit',
+      'corect'
     ],
     corectMaiorescu: 3,
     raspunsMaiorescu: false,
+    raspunsCorectMaiorescu: false,
     descriereJunimea: "",
     intrebariJunimea: [
-      '',
-      '',
-      ''
+      'gresit',
+      'gresit',
+      'corect'
     ],
     corectJunimea: 3,
-    raspunsJunimea: false
+    raspunsJunimea: false,
+    raspunsCorectJunimea: false
   },
   mutations: {
     changeLogged(state, name) {
-      state.logged = !state.logged
-      if(name != 'undefined')
-        state.nume = name
+      state.logged = !state.logged;
+      if(name !== 'undefined')
+        state.nume = name;
       else 
-        stet.nume = ''
+        state.nume = ''
     },
     raspunsCaragiale(state) {
       state.raspunsCaragiale = true;
@@ -113,11 +119,29 @@ export default new Vuex.Store({
     raspunsSlavici(state) {
       state.raspunsSlavici = true;
     },
-    raspunsTitulescu(state) {
-      state.raspunsTitulescu = true;
+    raspunsMaiorescu(state) {
+      state.raspunsMaiorescu = true;
     },
     raspunsJunimea(state) {
       state.raspunsJunimea = true;
+    },
+    raspunsCorectCaragiale(state, booleana) {
+      state.raspunsCorectCaragiale = booleana;
+    },
+    raspunsCorectEminescu(state, booleana) {
+      state.raspunsCorectEminescu = booleana;
+    },
+    raspunsCorectCreanga(state, booleana) {
+      state.raspunsCorectCreanga = booleana;
+    },
+    raspunsCorectSlavici(state, booleana) {
+      state.raspunsCorectSlavici = booleana;
+    },
+    raspunsCorectMaiorescu(state, booleana) {
+      state.raspunsCorectMaiorescu = booleana;
+    },
+    raspunsCorectJunimea(state, booleana) {
+      state.raspunsCorectJunimea = booleana;
     }
   }
 })
