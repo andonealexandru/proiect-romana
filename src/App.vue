@@ -1,38 +1,38 @@
 <template>
   <div class="uk-position-relative">
-    <vk-navbar class="nav" :class="{ 'uk-position-top': $router.currentRoute.name === 'home' }"
-               :transparent="$router.currentRoute.name === 'home'"
-                style="background-color: #CFA58D">
+    <vk-navbar class="nav" :class="{ 'uk-position-top': $router.currentRoute.name === 'home', 'color' : $router.currentRoute.name !== 'home' }"
+               :transparent="$router.currentRoute.name === 'home'">
       <vk-navbar-nav>
         <vk-navbar-logo><img src="./assets/logo.png" class="logo" style="max-height: 50%"></vk-navbar-logo>
-        <vk-navbar-nav-item title="Home" :active="$router.currentRoute.name === 'home'" @click="$router.push({ name: 'home' })" />
+        <vk-navbar-nav-item title="Acasa" active @click="$router.push({ name: 'home' })" />
       </vk-navbar-nav>
 
       <vk-navbar-nav slot="right">
         <vk-navbar-nav-item
           v-if="!getLogged"
-          title="Register"
-          :active="$router.currentRoute.name === 'signin'"
+          title="Inregistrare"
+          active
           @click="$router.push({ name: 'signin' })" />
         <vk-navbar-nav-item
           v-if="!getLogged"
-          title="Log In"
-          :active="$router.currentRoute.name === 'login'"
+          title="Conectare"
+          active
           @click="$router.push({ name: 'login' })" />
         <vk-navbar-nav-item
           v-if="getLogged"
-          title="Sign out"
+          title="Deconectare"
+          active
           @click="logOut" />
       </vk-navbar-nav>
     </vk-navbar>
     <router-view />
-
-
   </div>
 </template>
 
 <style lang="scss" scoped>
-
+.color {
+  background-color: #CFA58D;
+}
 </style>
 
 <script>
@@ -50,9 +50,6 @@ export default {
             store.commit('changeLogged');
             if(this.$route.path != '/')
               this.$router.push({name: 'home'});
-        },
-        getClass () {
-            return this.$router.currentRoute.name === 'home';
         }
     }
 }

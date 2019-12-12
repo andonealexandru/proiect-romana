@@ -7,7 +7,7 @@
         <p style="white-space: pre-wrap">{{ descriere }}</p>
       </div>
       <hr class="uk-divider-icon">
-      <vk-card-title>Ai găsit greșeala?</vk-card-title>
+      <vk-card-title>{{ question }}</vk-card-title>
       <vk-grid v-if="!getRaspuns" class="uk-child-width-1-3@m uk-text-center uk-flex-center">
           <div class="unu" @click="chose(1)">{{ questions[0] }}</div>
           <div class="doi" @click="chose(2)">{{ questions[1] }}</div>
@@ -39,6 +39,7 @@
                 name: '',
                 descriere: '',
                 questions: [],
+                question: '',
                 corect: null,
                 raspunsulCorect: 0,
                 formData: {
@@ -104,31 +105,37 @@
                     this.descriere = store.state.descriereCaragiale;
                     this.questions = store.state.intrebariCaragiale;
                     this.raspunsulCorect = store.state.corectCaragiale;
+                    this.question = store.state.intrebareCaragiale;
                 }
                 else if (this.name === "Mihai Eminescu") {
                     this.descriere = store.state.descriereEminescu;
                     this.questions = store.state.intrebariEminescu;
                     this.raspunsulCorect = store.state.corectCaragiale;
+                    this.question = store.state.intrebareEminescu;
                 }
                 else if (this.name === "Ion Creangă") {
                     this.descriere = store.state.descriereCreanga;
                     this.questions = store.state.intrebariCreanga;
                     this.raspunsulCorect = store.state.corectCreanga;
+                    this.question = store.state.intrebareCreanga;
                 }
                 else if (this.name === "Ioan Slavici") {
                     this.descriere = store.state.descriereSlavici;
                     this.questions = store.state.intrebariSlavici;
                     this.raspunsulCorect = store.state.corectSlavici;
+                    this.question = store.state.intrebareSlavici;
                 }
                 else if (this.name === "Titu Maiorescu") {
                     this.descriere = store.state.descriereMaiorescu;
                     this.questions = store.state.intrebariMaiorescu;
                     this.raspunsulCorect = store.state.corectMaiorescu;
+                    this.question = store.state.intrebareMaiorescu;
                 }
                 else if (this.name === "Junimea") {
                     this.descriere = store.state.descriereJunimea;
                     this.questions = store.state.intrebariJunimea;
                     this.raspunsulCorect = store.state.corectJunimea;
+                    this.question = store.state.intrebareJunimea;
                 }
             },
             scrollUp () {
