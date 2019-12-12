@@ -4,22 +4,22 @@
       <vk-card hover v-if="showForm">
         <form @submit.prevent="handleSubmit">
           <fieldset class="uk-fieldset">
-            <legend class="uk-legend">Create your account</legend>
+            <legend class="uk-legend">Inregistrare</legend>
             <div class="uk-margin">
               <div class="uk-inline uk-width-1-1">
                 <span class="uk-form-icon"><vk-icon icon="user" /></span>
-                <input v-model="formData.username" class="uk-input" type="text" placeholder="Name" required="required">
+                <input v-model="formData.username" class="uk-input" type="text" placeholder="Nume" required="required">
               </div>
             </div>
             <div class="uk-margin">
               <div class="uk-inline uk-width-1-1">
                 <span class="uk-form-icon"><vk-icon icon="lock" /></span>
-                <input v-model="formData.password" class="uk-input" type="password" placeholder="Password" required="required">
+                <input v-model="formData.password" class="uk-input" type="password" placeholder="Parola" required="required">
               </div>
             </div>
             <div class="uk-margin" v-if="!showSpinner">
               <div class="uk-inline uk-width-1-1">
-                <input type="submit" class="uk-button uk-button-default uk-width-1-1" value="Register now!">
+                <input type="submit" class="uk-button uk-button-default uk-width-1-1" value="Inregistrare">
               </div>
             </div>
             <div class="uk-inline uk-width-1-1" style="height: 45px"  v-if="showSpinner">

@@ -22,11 +22,11 @@ export default new Vuex.Store({
         "\tDe o factură cu totul deosebită este Năpasta. De data această râsul este convertit in compasiune, satira in meditatie si profunzime psihologică.\n" +
         "\tDupă 1890 repertoriul lui Caragiale se îmbogățește cu proza de analiză și cu povestiri care ilustrează și de asta dată, bogatele resurse ale marelui scriitor. Apar nuvele(O făclie de Paști, Păcat, În vreme de război), povestiri(Kir Inulea, La hanul lui Mînjoală, Calul dracului, Abu Hassan) si schiţe(d-l Goe, Triumful talentului, Vizită, Lanțul slăbiciunilor).\n",
     intrebariCaragiale: [
-        "Caragiale a fost om",
-        "Caragiale nu a fost om",
-        "Sa ai o zi"
+        "Hăimanale",
+        "Haimaitare",
+        "Haimanale"
     ],
-    intrebareCaragiale: "",
+    intrebareCaragiale: "Unde s-a născut Ion Luca Caragiale?",
     corectCaragiale: 3,
     raspunsCaragiale: false,
     raspunsCorectCaragiale: false,
@@ -100,19 +100,19 @@ export default new Vuex.Store({
       "Realistă",
       "Naturalistă"
     ],
-    intrebareSlavici: "Tema operei ,,Moara cu noroc\" este tipic realista, romantica sau naturalista?",
+    intrebareSlavici: "Tema operei ,,Moara cu noroc\" este tipic realistă, romantică sau naturalistă?",
     corectSlavici: 2,
     raspunsSlavici: false,
     raspunsCorectSlavici: false,
     descriereMaiorescu: "\tTitu Liviu Maiorescu a fost un academician, avocat, critic literar, eseist, estet, filosof, pedagog, politician și scriitor român mason, prim-ministru al României între 1912 și 1914, ministru de interne, membru fondator al Academiei Române.\n" +
         "\tGraba pe care o manifestă în obținerea diplomelor universitare (după numai un an de studii la Berlin obține la Giessen doctoratul „magna cum laude“, după încă un an, licența în litere și filosofie la Sorbona și, după încă un an de studii universitare la Paris, licența în drept) nu afectează seriozitatea pregătirii sale academice; bazele culturii extrem de solide a lui Maiorescu se instaurează acum.\n" +
-        "\tDeși perioada care a urmat Unirii din 1859 a reprezentat o epocă de împlinire a idealurilor pașoptiste, totuși unele accente se schimbaseră, condițiile erau altele decât pe vremea tinereții romantice a lui Heliade Rădulescu, Alecsandri sau Bălcescu. Maiorescu reprezintă noua generație, junimistă, cu o nouă concepție asupra vieții sociale și culturale românești. Este autorul celebrei teorii sociologice a formelor fără fond, baza junimismului politic și „piatra de fundament” pe care s-au construit operele lui Mihai Eminescu, Ion Creangă, Ion Luca Caragiale și Ioan Slavici. Acesta consideră împrumuturile trebuie făcute doar dacă fondul repectivului stat îi permite adaptarea. Teoria se găseşte în articolul teoretic “În contra direcţiei de astăzi în cultura română”, Titu Maiorescu afirmând că la noi împrumuturile au dus la naşterea unor producţiuni moarte şi concluzionează într-un mod pragmatic, afirmând că “mai bine să nu facem o şcoală deloc decât să facem o şcoală rea, mai bine să nu facem o pinacotecă deloc decât să o facem lipsită de artă frumoasă”, citat din care reiese vizunea despre lume a lui Titu Maiorescu.\n" +
+        "\tDeși perioada care a urmat Unirii din 1859 a reprezentat o epocă de împlinire a idealurilor pașoptiste, totuși unele accente se schimbaseră, condițiile erau altele decât pe vremea tinereții romantice a lui Heliade Rădulescu, Alecsandri sau Bălcescu. Maiorescu reprezintă noua generație, junimistă, cu o nouă concepție asupra vieții sociale și culturale românești. Este autorul celebrei teorii sociologice a formelor fără fond, baza junimismului politic și „piatra de fundament” pe care s-au construit operele lui Mihai Eminescu, Ion Creangă, Ion Luca Caragiale și Ioan Slavici. Acesta consideră că împrumuturile trebuie făcute doar dacă fondul repectivului stat îi permite adaptarea. Teoria se găseşte în articolul teoretic “În contra direcţiei de astăzi în cultura română”, Titu Maiorescu afirmând că la noi împrumuturile au dus la naşterea unor producţiuni moarte şi concluzionează într-un mod pragmatic, afirmând că “mai bine să nu facem o şcoală deloc decât să facem o şcoală rea, mai bine să nu facem o pinacotecă deloc decât să o facem lipsită de artă frumoasă”, citat din care reiese vizunea despre lume a lui Titu Maiorescu.\n" +
         "\tTotodată, Titu Maiorescu are şi câteva articole individuale, exemplu fiind “Eminescu şi poeziile lui”, articol în care se prezintă viaţa lui Mihai Eminescu, poet sub cărui auspicii va sta întreg secolul XX, şi “Comediile d-lui Caragiale”, articol în care apar operele dramaturgului Constantin Dobrogeanu Gherea, definind moralitatea drept fiind “o ficţiune, care scoate pe omul impresionabil în afară şi mai presus de interesele lumii”.\n" +
         "\tPuţini ştiu despre misoginismul domnului Titu Maiorescu. Acesta consideră faptul că femeile nu pot conduce un stat, aducând în discuţie un studiu ce spunea „Din 1.000 de căpățâni măsurate a rezultat 1.410 grame greutate mijlocie la bărbat și numai 1.250 la femei“. ",
     intrebariMaiorescu: [
-      "mai bun decât Viorica-Vasilica Dăncilă",
-      "mai bun decât Vladimir Putin",
-      "mai bun decât Victor-Viorel Ponta"
+      "Mai bun decât Viorica-Vasilica Dăncilă",
+      "Mai bun decât Vladimir Putin",
+      "Mai bun decât Victor-Viorel Ponta"
     ],
     intrebareMaiorescu: "Titu Maiorescu a fost un prim ministru:",
     corectMaiorescu: 1,
