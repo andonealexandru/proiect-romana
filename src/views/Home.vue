@@ -45,6 +45,9 @@
         </div>
       </vk-grid>
     </div>
+    <div class="uk-padding uk-width-1-1@m">
+      <img src="../assets/harta.jpg" class="uk-align-center">
+    </div>
   </div>
 </template>
 
